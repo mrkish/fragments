@@ -26,7 +26,7 @@ def main():
         your_list = list(reader)
 
     for property in your_list:
-        packet = newByteIO()
+        packet = io.BytesIO()
         c = canvas.Canvas(packet, pagesize=letter)
         c.drawString(75,539, property[0]) # Property Address
         c.drawString(438,539, property[1]) # Property ZIP
@@ -60,9 +60,6 @@ def main():
         output.addPage(pageToCopy)
         output.write(outputStream)
         outputStream.close()
-
-def newByteIO():
-    return io.BytesIO()
     
 if __name__ == "__main__":
     main()
